@@ -17,9 +17,8 @@ age_input = st.number_input(
 )
 
 # Prediction
-if st.button("Predict"):
-    age_array = np.array([[age_input]])   # shape (1, 1)
-    age_scaled = scaler.transform(age_array)
+if st.button("Predict"):  # shape (1, 1)
+    age_scaled = scaler.transform([[age_input]])
     prediction = model.predict(age_scaled)
 
     if prediction[0] == 0:
